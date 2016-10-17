@@ -34,6 +34,22 @@ $(document).ready(function(){
                     $('#quxiaodep').fadeOut("slow");
                     $('#quxiaodep').fadeOut(3000);
                   });
+
+$(".radio-inline").change(function() {
+          var $selectedvalue = $("input[name='c_state']:checked").val();
+         //alert($selectedvalue);
+          if ($selectedvalue == 2) {
+                    $('#bujian').fadeIn();
+                    $('#bujian').fadeIn("slow");
+                    $('#bujian').fadeIn(3000);
+          }else
+          {
+                    $('#bujian').fadeOut();
+                    $('#bujian').fadeOut("slow");
+                    $('#bujian').fadeOut(3000);
+          }
+        });
+
                
 
 

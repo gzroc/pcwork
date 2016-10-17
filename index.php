@@ -28,7 +28,7 @@ include_once'bridge.php';
                                 <?php
 
                                   $m= new M();
-                                  $data=$m->FetchAll('fofo_repair','depart_id,p_name,p_photo,date_time,c_state','','','0,40');
+                                  $data=$m->FetchAll('fofo_repair','id,depart_id,p_name,p_photo,date_time,c_state','','c_state DESC','0,40');
                                   //$data=$m->FetchAll('fofo_department','id,depart_name','','',$limit);
                                   foreach ($data as $v) {
 
@@ -36,8 +36,9 @@ include_once'bridge.php';
                                         {
                                         $stat='<button type="button" class="btn btn-warning btn-circle center-block "><i class="fa fa-times"></i>
                                                                 </button></td>
-                                                                                 <td class="dis"  style="display:none;" ><a href="admin/login.php">开始维修</a></td>
+                                                                                 <td class="dis"  style="display:none;" ><a href="doit.php?id='. $v['id'].'">开始维修</a></td>
                                                                         </tr>';
+                                                               
                                         }else
                                         
                                         {
