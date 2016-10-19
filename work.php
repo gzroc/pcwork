@@ -8,7 +8,7 @@ include_once'bridge.php';
 	{
 
 	    #code...
-				$depart_id=$_POST['depart_id'];
+	   $depart_id=$_POST['depart_id'];
                 $p_name=$_POST['p_name'];
                 $p_photo=$_POST['p_photo'];
                 $c_brand=$_POST['c_brand'];
@@ -19,10 +19,28 @@ include_once'bridge.php';
                         VALUES ('".$depart_id."','".$p_name."','".$p_photo."','".$c_brand."','".$c_fault."','".$c_state."','".$date_time."')";
                 
                 if($link->query($query))
-                    echo 1;
+                 $insert_id=$link->insert_id;
+                $link->close();
+                //echo $insert_id;
 
            
-    }
+          }elseif(isset($_GET['id']))
+          {
+
+                echo $id='id='.$_GET['id'];
+                $m=new M();
+                $data=$m->FetchAll('fofo_repair','id,depart_id,p_name,p_photo,date_time,c_fault',$id,'','');
+                foreach($data as $v)
+                {
+                    $insert_id=$v['id'];
+                    $depart_id=$v['depart_id'];;
+                    $p_name=$v['p_name'];
+                    $p_photo=$v['p_photo'];
+                    $c_fault=$v['c_fault'];
+                    $date_time=$v['date_time'];
+                }
+                
+            }
 
 
 
@@ -52,7 +70,15 @@ include_once'bridge.php';
                                         <tr>
                                             <td width="13%"><b>单位</b></td>
                                             <td width="20%"> 
-                                            <?php echo $depart_id;?> 
+                                            <?php 
+                                              $m= new M();
+                                                $r_id='id='.$depart_id;
+                                                $data=$m->FetchAll('fofo_department','depart_name',$r_id,'','');
+                                                foreach ($data as $k) {
+                                                $depart_name=$k['depart_name'];
+                                                 }   
+                                            echo $depart_name;
+                                            ?> 
                                             </td>
                                             <td width="13"><b>联系人</b></td>
                                             <td width="20%">
@@ -67,9 +93,15 @@ include_once'bridge.php';
                                         	<td>
                                         		<b>电话</b>
                                         	</td>
-                                        	<td colspan="5">
+                                        	<td colspan="2">
 												 <?php echo $p_photo;?> 
                                         	</td>
+                                                    <td colspan="1">
+                                                        <b>维修单号</b>
+                                                    </td>
+                                                <td colspan="2">
+                                                     <?php echo $insert_id;?> 
+                                                </td>
 
                                         </tr>
                                         <tr>
@@ -86,7 +118,7 @@ include_once'bridge.php';
                             <!-- /.table-responsive --> 
                             
                             <button onclick="jQuery('#fofo1').print()" type="submit" class="btn btn-danger">打印表格</button>
-                            <a href="repair.php" class="btn btn-success">返回主页</a>
+                            <a href="index.php" class="btn btn-success">返回主页</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>

@@ -110,6 +110,7 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
                                          <div class="form-group" id="bujian" style="display:none">
                                             <label>更换部件</label>
                                            <select class="form-control" name="r_part">
+                                           <option value='0'>0</option>
                                                <?php 
 
                                              
@@ -158,6 +159,22 @@ if(isset($_POST['r_part']))
 	echo $_POST['c_state'].'======3<br/>';
 	echo $_POST['r_part'].'======4<br/>';
 	echo $_POST['f_time'].'=======5<br/>';
+
+      $r_id=$_POST['r_id'];
+      $p_no=$_POST['p_no'];
+      $c_state=$_POST['c_state'];
+      $r_part=$_POST['r_part'];
+      $f_time=$_POST['f_time'];
+
+	$query="INSERT INTO `fofo_work`(`r_id`, `p_no`, `c_state`, `r_part`, `f_time`) VALUES ('".$r_id."','".$p_no."','".$c_state."','".$r_part."','".$f_time."')";
+       echo $query.'<br/>';
+	$query_update="UPDATE `fofo_repair` SET `c_state`=".$c_state." WHERE id=".$r_id;
+       echo $query_update.'<br/>';
+
+       if($link->query($query)&&$link->query($query_update))
+       {
+          echo '插入成功并且更新状态';
+       }
 }
 
 ?>

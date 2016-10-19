@@ -1,19 +1,18 @@
 <?php
-include_once 'head.php';
-include_once 'bridge.php';
+    include_once 'head.php';
+    include_once 'bridge.php';
     $m = new M(); 
     $total = $m->Total('fofo_department');
     $page = new PHPPage($total,20);
-
 ?>
 
 <div id='boday' style="width: 80% ;margin: auto;">
-		<div class="row">
+	<div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">维修表格</h1>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
+             </div>
 
 
 

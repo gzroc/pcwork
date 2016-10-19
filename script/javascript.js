@@ -48,10 +48,21 @@ $(".radio-inline").change(function() {
                     $('#bujian').fadeOut("slow");
                     $('#bujian').fadeOut(3000);
           }
-        });
+        });   
 
                
+    $('.lingqu').click(function(){
+                          if(confirm("确定机器修好已经领走？")){
+                                       if(confirm("确定机器修好已经领走？")){
+                                              window.location.href="index.php";
+                                       }
+                       }
+       });
+        $('.print').click(function(){
+                          if(confirm("确认打印")){
+                       }
 
+       });
 
 });
 
