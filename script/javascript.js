@@ -1,7 +1,5 @@
 $(document).ready(function(){
-
-	
-  $('#add').click(function(){
+ $('#add').click(function(){
                     $('#addtable').fadeIn();
                     $('#addtable').fadeIn("slow");
                     $('#addtable').fadeIn(3000);
@@ -51,18 +49,72 @@ $(".radio-inline").change(function() {
         });   
 
                
-    $('.lingqu').click(function(){
+    $('.lingqu_id').click(function(){
                           if(confirm("确定机器修好已经领走？")){
                                        if(confirm("确定机器修好已经领走？")){
-                                              window.location.href="index.php";
+                                            
+                                            var t=$('.lingqu_id').val();
+                                            window.location.href='index.php?id='+t;
+                                            alert (t+'号机器被领走');
+                                       }else
+                                       {
+                                           refresh();
                                        }
                        }
        });
-        $('.print').click(function(){
-                          if(confirm("确认打印")){
+        
+
+        $('.print_id').click(function(){
+                           if(confirm("确认打印"))
+                       {
+
+                            var t=$('.print_id').val();
+                            window.location.href='work.php?id='+t;
+                       }
+                       else
+                        {
+                             refresh();
                        }
 
-       });
+       });            
 
+          jQuery.validator.addMethod("isMobile", function(value, element) {
+              var length = value.length;
+              var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+              return this.optional(element) || (length == 11 && mobile.test(value));
+          }, "请正确填写您的手机号码");
+
+
+
+
+         $("#songxiu").validate({
+          rules:{
+                          p_name:"required",
+                          p_photo:{
+                          required : true,
+                          digits:true,
+                          minlength : 11,
+                          isMobile : true
+                           },
+                           c_fault:{
+                            required:true,
+                            minlength:10
+                           },
+                          messages: {
+                          p_name: "请输入您的名字",
+                          p_photo: {
+                              required : "请输入手机号",
+                              minlength : "确认手机不能小于11个字符",
+                              digits:"请输入数字",
+                              isMobile : "请正确填写您的手机号码"
+                                      },
+                          c_fault:{
+                            required:"请填写详细的问题所在，方便维修人员修理",
+                            minlength:"最少输入10个字符"
+                          }
+                         }
+              }
+
+          });  
 });
 

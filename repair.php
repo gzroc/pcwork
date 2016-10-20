@@ -25,7 +25,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form"  method="POST" action="work.php" >
+                                    <form role="form"  id="songxiu" class='cmxform'  method="POST" action="work.php" >
                                      <div class="form-group">
                                             <label>单位</label>
                                             <select name='depart_id' class="form-control">
@@ -45,12 +45,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label>送修人</label>
-                                            <input placeholder="请填写联系人姓名，方便联系。"   name='p_name' class="form-control">
+                                            <input placeholder="请填写联系人姓名，方便联系。"  id='p_name'  name='p_name' class="form-control">
                                          
                                         </div>
                                          <div class="form-group">
                                             <label>联系电话</label>
-                                            <input  placeholder="请填写联系人手机号码，方便沟通联系"  name='p_photo' class="form-control">
+                                            <input  placeholder="请填写联系人手机号码，方便沟通联系" id='p_photo'  name='p_photo' class="form-control">
                                            
                                         </div>
                                          <div class="form-group">
@@ -64,7 +64,7 @@
                                         </div>
                                        <div class="form-group">
                                             <label>问题描述</label>
-                                            <textarea  placeholder="请详细填写信息，以便维修人员快速维护。" name='c_fault' class="form-control" rows="3"></textarea>
+                                            <textarea  placeholder="请详细填写信息，以便维修人员快速维护。" id='c_fault' name='c_fault' class="form-control" rows="3"></textarea>
                                         </div>
                                       
                                    
@@ -74,7 +74,13 @@
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
-                              
+                                <script>
+                                   $.validator.setDefaults({
+                                        submitHandler: function() {
+                                          alert("提交事件!");
+                                        }
+                                    });
+                            </script>
                             </div>
                             <!-- /.row (nested) -->
                         </div>

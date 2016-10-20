@@ -7,7 +7,7 @@ include_once'bridge.php';
                     $query="UPDATE `fofo_repair` SET `c_state`=4 WHERE id=".$id;
                         if($link->query($query))
                         {
-                            //echo $_GET['id'].'号机器被领走';
+                            echo $_GET['id'].'号机器被领走';
                          }     
                         $link->close();               
                  }
@@ -45,7 +45,7 @@ include_once'bridge.php';
                                         {
                                         $stat='<button type="button" class="btn btn-warning btn-circle "><i class="fa fa-times"></i>
                                                                 </button>
-                                                              <button type="button" class="btn btn-outline btn-primary btn-sm"><a class="print" href="work.php?id='.$v['id'].'">打印表格</a></button>
+                                                              <button type="button"  class="print_id btn btn-outline btn-primary btn-sm" value="'.$v['id'].'">打印表格</button>
                                                                 </td>
                                                                                  <td class="dis"  style="display:none;" >
                                                                                  <button type="button" class="btn btn-outline btn-primary btn-sm center-block"><a href="doit.php?id='. $v['id'].'">开始维修</a></button>
@@ -58,10 +58,10 @@ include_once'bridge.php';
                                            $stat='<button type="button" class="btn btn-info btn-circle center-block"><i class="fa fa-check"></i>
                                                                 </button></td>
                                                                 <td class="dis"  style="display:none;" > 
-                                                                       <a class="lingqu" href="index.php?id='.$v['id'].'"> 
-                                                                           <button type="button" class="btn btn-info btn-circle center-block"><i  class="fa fa-check"></i>
+                                                                       
+                                                                           <button type="button" class="lingqu_id btn btn-info btn-circle center-block" value="'.$v['id'].'"><i  class="fa fa-check"></i>
                                                                            </button> 
-                                                                       </a>
+                                                                      
                                                                 </td></tr>'; 
                                         }
                                         $m= new M();

@@ -1,14 +1,11 @@
 <?php
 include_once 'head.php';
 include_once'bridge.php';
+            
 
-
-
-	if (isset($_POST['depart_id'])) 
+            if (isset($_POST['depart_id'])) 
 	{
-
-	    #code...
-	   $depart_id=$_POST['depart_id'];
+                $depart_id=$_POST['depart_id'];
                 $p_name=$_POST['p_name'];
                 $p_photo=$_POST['p_photo'];
                 $c_brand=$_POST['c_brand'];
@@ -26,8 +23,7 @@ include_once'bridge.php';
            
           }elseif(isset($_GET['id']))
           {
-
-                echo $id='id='.$_GET['id'];
+                $id='id='.$_GET['id'];
                 $m=new M();
                 $data=$m->FetchAll('fofo_repair','id,depart_id,p_name,p_photo,date_time,c_fault',$id,'','');
                 foreach($data as $v)

@@ -32,6 +32,14 @@
     <script src="dist/js/sb-admin-2.js"></script>
      <script src="script/javascript.js"></script>
 
+
+      <script src="script/validation/lib/jquery.js"></script>
+      <script src="script/validation/dist/jquery.validate.min.js"></script>
+      <script src="script/validation/dist/localization/messages_zh.js"></script>
+
+
+
+
 </head>
 <body>
 			<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;width:80%;margin:auto">
