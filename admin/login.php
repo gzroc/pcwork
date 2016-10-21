@@ -34,6 +34,11 @@
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
 
+
+    <script src="../script/javascript.js"></script>
+    <script src="../script/validation/dist/jquery.validate.min.js"></script>
+    <script src="../script/validation/dist/localization/messages_zh.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,7 +47,11 @@
     <![endif]-->
 
 </head>
-
+<style>
+.error{
+    color:red;
+}
+</style>
 <body>
 
     <div class="container">
@@ -53,13 +62,13 @@
                         <h3 class="panel-title">请登录</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" method="POST"  action="yanzheng.php">
+                        <form role="form" id="denglu" method="POST"  action="yanzheng.php">
                             <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="工号" name="p_no"  autofocus>
+                                <div class="form-group"><label id="p_psw-error"  class="error" width=10% for="p_no"></label>
+                                    <input class="form-control"  placeholder="工号" 第 id="p_no" name="p_no"  autofocus>
                                 </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="密码" name="p_psw" type="password" value="">
+                                <div class="form-group"><label id="p_psw-error"  class="error" width=10% for="p_psw"></label>
+                                    <input class="form-control" placeholder="密码" 第 id="p_psw" name="p_psw" type="password" value="">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -76,7 +85,14 @@
         </div>
     </div>
 
-  
+                            <script>
+                                
+                                   $.validator.setDefaults({
+                                        submitHandler: function() {
+                                            form.submit();
+                                        }
+                                    });
+                            </script>
 
 </body>
 

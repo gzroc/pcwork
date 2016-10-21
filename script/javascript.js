@@ -87,7 +87,15 @@ $(".radio-inline").change(function() {
 
 
 
-         $("#songxiu").validate({
+            $("#songxiu").validate({
+              errorPlacement: function(error, element) {
+    
+      $( element )
+        .closest( "form" )
+          .find( "label[for='" + element.attr( "id" ) + "']" )
+            .append( error );
+    },
+    errorElement: "span",
           rules:{
                           p_name:"required",
                           p_photo:{
@@ -99,8 +107,10 @@ $(".radio-inline").change(function() {
                            c_fault:{
                             required:true,
                             minlength:10
-                           },
-                          messages: {
+                           }
+                       },    
+
+                     messages: {
                           p_name: "请输入您的名字",
                           p_photo: {
                               required : "请输入手机号",
@@ -111,9 +121,37 @@ $(".radio-inline").change(function() {
                           c_fault:{
                             required:"请填写详细的问题所在，方便维修人员修理",
                             minlength:"最少输入10个字符"
-                          }
+                                     }
                          }
-              }
+               
+
+          });  
+
+
+              $("#denglu").validate({
+              errorPlacement: function(error, element) {
+    
+      $( element )
+        .closest( "form" )
+          .find( "label[for='" + element.attr( "id" ) + "']" )
+            .append( error );
+    },
+    errorElement: "span",
+          rules:{
+                          p_no:"required",
+                          p_psw:{
+                          required : true,
+                           },
+                        
+                       },    
+
+                     messages: {
+                          p_no: "请输入您的用户名",
+                          p_psw: {
+                              required : "请输入您的密码",
+                                      },
+                           }
+               
 
           });  
 });

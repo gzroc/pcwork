@@ -32,13 +32,18 @@
     <script src="dist/js/sb-admin-2.js"></script>
      <script src="script/javascript.js"></script>
 
+<!-- 
+<script src="script/validation/lib/jquery.js"></script> -->
+<script src="script/validation/dist/jquery.validate.min.js"></script>
+<script src="script/validation/dist/localization/messages_zh.js"></script>
 
-      <script src="script/validation/lib/jquery.js"></script>
-      <script src="script/validation/dist/jquery.validate.min.js"></script>
-      <script src="script/validation/dist/localization/messages_zh.js"></script>
 
-
-
+<style>
+.error{
+    color:red;
+    float: right;
+}
+</style>
 
 </head>
 <body>
