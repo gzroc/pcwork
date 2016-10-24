@@ -1,117 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="description" content="维系系统" />
-<meta name="keywords" content="维修系统" />
- <title>太和县公安局电脑维修系统</title>
- <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-<!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-<!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-<!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/jquery/jquery.print.js"></script>
-    <!-- print JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-	<!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-	<!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-    <script src="../script/javascript.js"></script>
-
-</head>
-
 <?php
-
-include_once '../bridge.php';
-$yanzheng=new yanzheng();
-$yanzheng->checksesson($_SESSION['p_no']);
-
-
-    $m = new M(); 
-    $total = $m->Total('fofo_department');
-    $page = new PHPPage($total,20);
-
+include_once'adminhead.php';
 
 ?>
-<body youdao="bind">
 
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-           
-                     <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="../index.php">电脑送修系统</a>
-                
-            </div>
-            
-            <ul class="nav navbar-top-links navbar-right">
-                
-               <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="login.php"><i class="fa fa-user fa-fw"></i>登陆</a>
-                        </li>
-                        <li><a href="yanzheng.php?logout"><i class="fa fa-sign-out fa-fw"></i>退出</a>
-                        </li>
-                        
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-               <!-- /.navbar-top-links -->
-<!-- [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar]-->
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav in" id="side-menu">
-                     
-                        <li>
-                            <a href="list.php"><i class="fa fa-dashboard fa-fw"></i>总局概览</a>
-                        </li>
-                        <li class="">
-                            <a href="charts.php"><i class="fa fa-bar-chart-o fa-fw"></i> 统计图表<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse" aria-expanded="true">
-                                <li>
-                                    <a href="#">纵向统计</a>
-                                </li>
-                                <li>
-                                    <a href="#">横向统计</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                     
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-
-
-
-<!--  [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar] [sidebar]/.navbar-static-side -->
-        </nav>
+      
 
         <div id="page-wrapper" style="min-height: 266px;">
             <div class="row">
@@ -151,7 +43,20 @@ $yanzheng->checksesson($_SESSION['p_no']);
                                      {
                                             
 
-    echo ' <tr class="odd gradeX"><td>'.$show['part'].'</td><td>'.$show['brand'].'</td> <td>'.$show['size'].'</td><td>'.$show['price'].'.00</td><td><a href="login.html">修改</a>&nbsp;&nbsp;&nbsp;<a href="login.html">删除</a></td> </tr>';
+    echo ' <tr class="odd gradeX">
+    <td>'.$show['part'].'</td>
+    <td>'.$show['brand'].'</td>
+     <td>'.$show['size'].'</td>
+     <td>'.$show['price'].'.00</td>
+     <td>
+                            <button type="button" class="xiugai_id btn btn-default" value="'.$show['id'].'">修改</button>&nbsp;
+                            <button type="button" class="part_del btn btn-default" value="'.$show['id'].'"> 删除</button>
+                            <button type="button" style="display:none;"   id="up_s_id'.$show['id'].'" value="'.$show['id'].'"> </button>  
+                            <button type="button" style="display:none;"   id="up_s_part'.$show['id'].'" value="'.$show['part'].'"> </button> 
+                            <button type="button" style="display:none;"   id="up_s_brand'.$show['id'].'" value="'.$show['brand'].'"> </button> 
+                            <button type="button" style="display:none;"   id="up_s_size'.$show['id'].'" value="'.$show['size'].'"> </button> 
+                            <button type="button" style="display:none;"   id="up_s_price'.$show['id'].'" value="'.$show['price'].'"> </button> 
+    </td> </tr>';
                                      }
                                      ?>
                                         
@@ -163,21 +68,53 @@ $yanzheng->checksesson($_SESSION['p_no']);
                             <!-- /.table-responsive -->
                              
                                         <div class="form-group">
+                                        <form role="form"  id="addpart" class='cmxform'  method="POST" action="list.php" >
                                              <table id='addtable' style="display: none;" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                                 <tbody>
+                                                <tbody>
                                                     <tr>
                                                     <td><input id='type' value="spare" style="display: none">
-                                                        <input id='part' placeholder="部位" class="form-control"></td>
-                                                    <td><input id='brand' placeholder="品牌"  class="form-control"></td>
-                                                    <td><input id='size' placeholder="规格"  class="form-control"></td>
-                                                    <td><input id='price' placeholder="价格"  class="form-control"></td>
+                                                        <input id='part'  name='part' placeholder="部位" class="form-control">
+                                                        <label id="p_psw-error"  class="error"  for="part"></label>
+                                                        </td>
+                                                    <td><input id='brand' name='brand' placeholder="品牌"  class="form-control">
+                                                            <label id="brand-error"  class="error"  for="brand"></label>
+                                                    </td>
+                                                    <td><input id='size' name='size' placeholder="规格"  class="form-control">
+                                                            <label id="size-error"  class="error"  for="size"></label>
+                                                    </td>
+                                                    <td><input id='price' name='price' placeholder="价格"  class="form-control">
+                                                            <label id="price-error"  class="error"  for="price"></label>
+                                                    </td>
                                                     <td width="10%"><button  type="submit" class="btn btn-default">确认增加</button></td>
                                                     </tr>
 
                                                </tbody>  
+                                           </table>
+                                             </form>
+                                            <form role="form"  id="updatpart" class='cmxform'  method="POST" action="list.php" >
+                                              <table id='updattable' style="display: none;" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                 <tbody>
+                                                    <tr>
+                                                    <td><input id='up_id' name='up_id'  style="display: none"  value="">
+                                                        <input id='up_part'  name='up_part' placeholder="部位" class="form-control" value="">
+                                                        <label id="p_psw-error"  class="error"  for="up_part"></label>
+                                                        </td>
+                                                    <td><input id='up_brand' name='up_brand' placeholder="品牌"  class="form-control" value="">
+                                                            <label id="brand-error"  class="error"  for="up_brand"></label>
+                                                    </td>
+                                                    <td><input id='up_size' name='up_size' placeholder="规格"  class="form-control" value="">
+                                                            <label id="size-error"  class="error"  for="up_size"></label>
+                                                    </td>
+                                                    <td><input id='up_price' name='up_price' placeholder="价格"  class="form-control" value="">
+                                                            <label id="price-error"  class="error"  for="up_price"></label>
+                                                    </td>
+                                                    <td width="10%"><button  type="submit" class="btn btn-default">修改</button>
+                                                    <button class="xiugai_cance_id  btn btn-default">取消</button></td>
+                                                    </tr>
 
+                                               </tbody>  
                                             </table>
-                                           
+                                         </form>
                                         </div>
                             
 
@@ -192,85 +129,65 @@ $yanzheng->checksesson($_SESSION['p_no']);
                 <!-- /.col-lg-12 -->
             </div>
 
-                            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                          单位列表
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th width="20%">编号</th>
-                                        <th>名称</th>
-                                        <th width="10%">操作管理</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   
-                                    <?php
-
-                                $limit =$page->limit();
-                                $data=$m->FetchAll('fofo_department','id,depart_name','','',$limit);
-                                foreach ($data as $show) { //循环取出数据
-                                   
-    echo ' <tr class="odd gradeX"><td>'.$show['id'].'</td><td>'.$show['depart_name'].'</td><td><a href="login.html">修改</a>&nbsp;&nbsp;&nbsp;<a href="login.html">删除</a></td>  </tr>';
-                                     }
-                                     ?>                                        
-                                        
-                                  
-                                   
-                                </tbody>
-                             </table>
-                            <!-- /.table-responsive -->
-
-                             <div class="form-group">
-                                 <?php
-                                    echo $page->show();
-                                    ?>
-                             </div>
-                                        <div class="form-group">
-                                             <table id="deptable" style="display: none;" width="100%" class="table table-striped table-bordered table-hover">
-                                                 <tbody>
-                                                    <tr>
-                                                    <td>
-                                                        <input id="type" value="spare" style="display: none">
-                                                        <input id="dep_name" placeholder="单位名称" class="form-control">
-                                                     </td>
-                                                   
-                                                    
-                                                    
-                                                    <td width="10%"><button type="submit" class="btn btn-default">确认增加</button></td>
-                                                    </tr>
-
-                                               </tbody>  
-
-                                            </table>
-                                           
-                                        </div>
                             
-
-                           <button id="adddep" class="btn btn-default">增加单位</button>
-                         <button id="quxiaodep"  style="display: none;" class="btn btn-default">取消增加</button>
-                      
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
         </div>
         <!-- /#page-wrapper -->
  </div>
     <!-- /#wrapper -->
 
-   
+<script>
+                                
+                                   $.validator.setDefaults({
+                                        submitHandler: function() {
+                                            form.submit();
+                                        }
+                                    });
+</script>   
 
 
 
 
 </body>
 </html>
+<?php
+
+if(isset($_POST['part']))
+{
+    $part=$_POST['part'];
+    $brand=$_POST['brand'];
+    $size=$_POST['size'];
+    $price=$_POST['price'];
+    $query="INSERT INTO `fofo_spare`( `part`, `brand`, `size`,`price`) VALUES ('".$part."','".$brand."','".$size."','".$price."')";
+    if( $m->insert($query,true))
+    {   
+            echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+    }
+
+}
+
+if(isset($_GET['part_id']))
+{
+    $part_id=$_GET['part_id'];
+    $part_id='id='.$part_id; 
+    echo $part_id;
+    $m=new M();
+    if( $m->Del('fofo_spare',$part_id))
+    {   
+            echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+    }
+
+}
+if(isset($_POST['up_id']))
+{
+        $up_id=$_POST['up_id'];
+        $up_id="id=".$up_id;
+        $up_part=$_POST['up_part'];
+        $up_brand=$_POST['up_brand'];
+        $up_size=$_POST['up_size'];
+        $up_price=$_POST['up_price'];
+        if($m->Update("fofo_spare", array('part'=> $up_part, 'brand'=> $up_brand, 'size'=> $up_size, 'price'=> $up_price), $up_id))
+        {
+            echo "<script>alert('操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+        }
+}
+?>

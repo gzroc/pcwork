@@ -3,11 +3,12 @@
 include_once 'head.php';
 include_once 'bridge.php';
 $m = new M(); 
-  
+$yanzheng=new yanzheng();
+$yanzheng->checksesson($_SESSION['p_no']);
 
 if(isset($_GET['id'])&&isset($_SESSION['p_no']))
 {
-	echo $_GET['id'].'号机器开始维修';
+      //echo $_GET['id'].'号机器开始维修';
 	$id=$_GET['id'];
 	$p_no=$_SESSION['p_no'];
 ?>
@@ -154,11 +155,11 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
 if(isset($_POST['r_part']))
 {
 	
-	echo $_POST['r_id'].'======1<br/>';
+	/*echo $_POST['r_id'].'======1<br/>';
 	echo $_POST['p_no'].'======2<br/>';
 	echo $_POST['c_state'].'======3<br/>';
 	echo $_POST['r_part'].'======4<br/>';
-	echo $_POST['f_time'].'=======5<br/>';
+	echo $_POST['f_time'].'=======5<br/>';*/
 
       $r_id=$_POST['r_id'];
       $p_no=$_POST['p_no'];
@@ -167,13 +168,13 @@ if(isset($_POST['r_part']))
       $f_time=$_POST['f_time'];
 
 	$query="INSERT INTO `fofo_work`(`r_id`, `p_no`, `c_state`, `r_part`, `f_time`) VALUES ('".$r_id."','".$p_no."','".$c_state."','".$r_part."','".$f_time."')";
-       echo $query.'<br/>';
+       //echo $query.'<br/>';
 	$query_update="UPDATE `fofo_repair` SET `c_state`=".$c_state." WHERE id=".$r_id;
-       echo $query_update.'<br/>';
+       //echo $query_update.'<br/>';
 
        if($link->query($query)&&$link->query($query_update))
        {
-          echo '插入成功并且更新状态';
+              echo "<script>alert('操作成功');location.href='index.php';</script>";
        }
 }
 

@@ -60,6 +60,9 @@
             </div>
      		
             <ul class="nav navbar-top-links navbar-right">
+            <a href="admin/list.php" class="houtai">
+                <button type="button" class="btn btn-default btn-lg">后台管理</button>
+                </a>
                 <a href="repair.php">
                 <button type="button" class="btn btn-default btn-lg">送修申请</button>
                 </a>
@@ -83,3 +86,13 @@
 
             <!-- /.navbar-static-side -->
         </nav>
+<?php
+if(isset($_SESSION['p_no']))
+                {
+                    echo  "<script>$('.houtai').show();</script>";
+                }
+                else
+                {
+                    echo  "<script>$('.houtai').hide();</script>";
+                }
+?>

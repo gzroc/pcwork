@@ -358,5 +358,6 @@ class  M {
     private function getError($fun, $line, $other="") {  
         return __CLASS__ . '->' . $fun . '() line<font color="red">'. $line .'</font> ERROR! ' . $other;
     }
+
 }
 ?>

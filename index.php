@@ -7,7 +7,7 @@ include_once'bridge.php';
                     $query="UPDATE `fofo_repair` SET `c_state`=4 WHERE id=".$id;
                         if($link->query($query))
                         {
-                            echo $_GET['id'].'号机器被领走';
+                          //  echo $_GET['id'].'号机器被领走';
                          }     
                         $link->close();               
                  }
@@ -48,7 +48,7 @@ include_once'bridge.php';
                                                               <button type="button"  class="print_id btn btn-outline btn-primary btn-sm" value="'.$v['id'].'">打印表格</button>
                                                                 </td>
                                                                                  <td class="dis"  style="display:none;" >
-                                                                                 <button type="button" class="btn btn-outline btn-primary btn-sm center-block"><a href="doit.php?id='. $v['id'].'">开始维修</a></button>
+                                                                                 <button type="button" class="weixiu_id btn btn-outline btn-primary btn-sm center-block" value="'.$v['id'].'">开始维修</button>
                                                                                  </td>
                                                                         </tr>';
                                                                

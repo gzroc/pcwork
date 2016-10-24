@@ -1,11 +1,13 @@
 <?php
-
+include_once("head.php");
 include_once("bridge.php");
 
 $m = new M(); 
 $total = $m->Total('fofo_department');
 $page = new PHPPage($total,10000); 
-
+echo $m->insert("INSERT INTO `fofo_people`( `p_no`, `p_name`, `p_psw`) VALUES ('003','程帅帅','admin')",true).'=====insert==========<br/>';
+echo $m->Update("fofo_people", array('p_no'=>'007', 'p_name'=>'bangde'), "id=9").'=====update==========<br/>';
+echo $m->Del('fofo_people', 'id=8').'=====del====='; 
 ?>
 <table width="1000" border="1" style="border-collapse:collapse; font-size:13px;">
 <tr height="30">
@@ -36,4 +38,11 @@ foreach ($data as $v) { //循环取出数据
 </table>
 <?php
 echo $page->limit();
+
+		
+
+
+
+
+
 ?>

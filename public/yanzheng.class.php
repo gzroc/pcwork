@@ -10,8 +10,9 @@
 		public function checksesson($sesson)
 		{
 			if (!isset($sesson))
-				{
-					echo '您无权访问该页,<b><a href="../index.php">点击返回</a></b>';
+				{	
+
+					echo '您无权访问该页,<b><a href="http://'.$_SERVER ['HTTP_HOST'].'/pcwork/index.php">点击返回</a></b>';
 					exit();
 				}
 	
