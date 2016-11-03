@@ -29,7 +29,7 @@ include_once'bridge.php';
                                         <th>联系人</th>
                                         <th>联系电话</th>
                                         <th>送修时间</th>
-                                        <th width="10%">维修状态</th>
+                                        <th width="15%">维修状态</th>
                                         <th class='dis'  style='display:none' width="10%">操作管理</th>
                                     </tr>
                                 </thead>

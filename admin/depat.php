@@ -31,7 +31,7 @@ include_once'adminhead.php';
                                     <tr>
                                         <th width="20%">编号</th>
                                         <th>名称</th>
-                                        <th width="10%">操作管理</th>
+                                        <th width="15%">操作管理</th>
                                     </tr>
                                 </thead>
                                 <tbody>

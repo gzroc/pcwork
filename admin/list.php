@@ -28,7 +28,7 @@ include_once'adminhead.php';
                                         <th>品牌</th>
                                         <th>规格</th>
                                         <th>价格</th>
-                                        <th width="10%">操作管理</th>
+                                        <th width="15%">操作管理</th>
                                     </tr>
                                 </thead>
                                 <tbody>

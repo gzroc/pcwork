@@ -19,9 +19,6 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-
-
-
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
@@ -31,7 +28,7 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form"  method="POST" action="doit.php" >
+                                    <form role="form"  method="POST" action="doit.php">
                                      <div class="form-group">
                                             <label>单位</label>
                                           
