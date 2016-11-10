@@ -128,7 +128,7 @@ $(".radio-inline").change(function() {
 
 
   $('.xiugai_cance_id').click(function(){
-
+                    event.preventDefault();
                    $('#updattable').fadeOut();
                     $('#updattable').fadeOut("slow");
                     $('#updattable').fadeOut(3000);
