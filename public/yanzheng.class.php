@@ -1,5 +1,7 @@
 <?php
-
+<?php
+session_start();
+?>
 	class yanzheng
 	{
 		public function show()
