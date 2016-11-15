@@ -250,3 +250,9 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+#不更新下列文件夹内容
+/data
+/danweijieshao
+/uploads
+/data/tplcache
