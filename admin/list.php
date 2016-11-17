@@ -1,5 +1,5 @@
 <?php
-include_once'adminhead.php';
+include_once 'adminhead.php';
 ?>
 
       

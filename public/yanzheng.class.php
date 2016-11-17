@@ -1,8 +1,6 @@
 <?php
-<?php
-session_start();
-?>
-	class yanzheng
+
+class yanzheng
 	{
 		public function show()
 		{

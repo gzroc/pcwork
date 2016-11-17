@@ -1,6 +1,5 @@
 <?php
 	error_reporting(0);
-
 	define('ROOT_PATH', dirname(__FILE__));
 	define('DB_HOST', 'localhost'); //数据库服务器地址
 	define('DB_USER', 'root');  //数据库用户名

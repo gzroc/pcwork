@@ -47,6 +47,33 @@ session_start();
     float: right;
 }
 </style>
+<script>
+    
+    function myBrowser(){
+     var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+    var isOpera = userAgent.indexOf("Opera") > -1;
+     if (isOpera) {
+         return "Opera"
+     }; //判断是否Opera浏览器
+    if (userAgent.indexOf("Firefox") > -1) {
+         return "FF";
+     } //判断是否Firefox浏览器
+    if (userAgent.indexOf("Chrome") > -1){
+   return "Chrome";
+  }
+     if (userAgent.indexOf("Safari") > -1) {
+         return "Safari";
+     } //判断是否Safari浏览器
+    if (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+         return "IE";
+     }; //判断是否IE浏览器
+}
+    var mb = myBrowser();    
+    if ("Chrome" !== mb) {
+     alert("请用谷歌浏览器使用本系统");
+    }  
+    
+</script>
 
 </head>
 <body>
@@ -63,11 +90,14 @@ session_start();
             </div>
      		
             <ul class="nav navbar-top-links navbar-right">
-            <a href="admin/list.php" class="houtai">
+                <a href="/pcwork/chromer.exe" class="chrom btn btn-danger btn-lg">
+                Chrom浏览器下载
+                </a>
+                <a href="admin/list.php" class="houtai">
                 <button type="button" class="btn btn-default btn-lg">后台管理</button>
                 </a>
                 <a href="repair.php">
-                <button type="button" class="btn btn-default btn-lg">送修申请</button>
+                <button type="button" class="btn btn-success  btn-lg">送修申请</button>
                 </a>
             
                <li class="dropdown">

@@ -1,6 +1,5 @@
 <?php
 include_once'adminhead.php';
-echo "helloword";
 ?>
 <script>
                                 

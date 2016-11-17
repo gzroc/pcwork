@@ -1,7 +1,7 @@
 <?php
-
 include_once 'head.php';
 include_once 'bridge.php';
+
 $m = new M(); 
 $yanzheng=new yanzheng();
 $yanzheng->checksesson($_SESSION['p_no']);
@@ -56,7 +56,7 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
                                             <label>维修人</label>
                                             <?php
                                             	$p_name='p_no='.$p_no;
- 				$data=$m->FetchAll('fofo_people','*',$p_name);
+ 				                                      $data=$m->FetchAll('fofo_people','*',$p_name);
                                            	   foreach ($data as $show)
                                                {
                                                		$p_name=$show['p_name']; 
@@ -148,7 +148,6 @@ if(isset($_GET['id'])&&isset($_SESSION['p_no']))
   <?php
 }
 
-
 if(isset($_POST['r_part']))
 {
 	
@@ -165,9 +164,9 @@ if(isset($_POST['r_part']))
       $f_time=$_POST['f_time'];
 
 	$query="INSERT INTO `fofo_work`(`r_id`, `p_no`, `c_state`, `r_part`, `f_time`) VALUES ('".$r_id."','".$p_no."','".$c_state."','".$r_part."','".$f_time."')";
-       //echo $query.'<br/>';
-	$query_update="UPDATE `fofo_repair` SET `c_state`=".$c_state." WHERE id=".$r_id;
-       //echo $query_update.'<br/>';
+  $query_update="UPDATE `fofo_repair` SET `c_state`=".$c_state." WHERE id=".$r_id;
+       /*echo $query_update.'<br/>';
+       echo $query.'<br/>';*/
 
        if($link->query($query)&&$link->query($query_update))
        {
